@@ -54,10 +54,10 @@ print("%s %s" % (len(uList) - 1, "Updates available"))
 if len(uList) > 1:
     for upgrade in getList(output):
         print("%s '%s'" % ("now updating module", upgrade))
-#        if pVersion > 2:
-#            call(["pip3",  "install",  "--upgrade", "--user", upgrade])
-#        else:
-#            call(["pip2",  "install",  "--upgrade", "--user", upgrade])
+        if pVersion > 2:
+            call(["pip3",  "install",  "--upgrade", "--user", upgrade])
+        else:
+            call(["pip2",  "install",  "--upgrade", "--user", upgrade])
 else:
     print("%s\n%s" % ("no upgrade needed", "###################################"))
 
