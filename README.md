@@ -8,10 +8,7 @@ Update outdated python user modules
 
 ## Usage:
 ###### Python 2:
-``` 
-python pip_update_outdated.py
-```
+> python pip_update_outdated.py
+
 ###### Python 3:
- ```
- python3 pip_update_outdated.py
- ```
+> python3 pip_update_outdated.py
