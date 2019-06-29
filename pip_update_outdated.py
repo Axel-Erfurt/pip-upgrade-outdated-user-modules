@@ -8,8 +8,15 @@ from subprocess import check_output
 import sys
 
 pVersion = int(sys.version[:1])
-print("%s\n%s" % ("Welcome", "searching for outdated modules ..."))
+
 print("%s %s" % ("Python Version:", sys.version[:5]))
+print("%s\n%s" % ("Welcome", "searching for outdated modules ..."))
+if pVersion > 2:
+    pipVersion = check_output(['pip3', '--version'])
+else:
+    pipVersion = check_output(['pip3', '--version'])
+print("%s %s" % ("pip Version:", pipVersion.decode('ascii')[4:10]))
+
 packages = [dist.project_name for dist in pkg_resources.working_set]
 
 if pVersion > 2:
@@ -35,7 +42,7 @@ def getList(ml):
     mylist = []
     output = [sub.split('==') for sub in ml[0]]
     flat_list = [item for sublist in output for item in sublist]
-    s = ('\n'.join(flat_list[:-1]))
+    s = (eol.join(flat_list[:-1]))
     upgradeList = s.split(eol)[::2]
 #    print("%s\n%s" %("Upgrade List:", '\n'.join(upgradeList)))
     return upgradeList
